@@ -1,0 +1,39 @@
+﻿@model dynamic
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>@Model.Name</h1>
+<h2>@Model.JobTitle</h2>
+<p><strong>Contact:</strong> @Model.ContactInfo</p>
+
+<h3>Summary</h3>
+<p>@Model.Summary</p>
+
+<h3>Skills</h3>
+<ul>
+    @foreach (var skill in Model.Skills)
+    {
+        <li>@skill</li>
+    }
+</ul>
+
+<h3>Experience</h3>
+<ul>
+    @foreach (var job in Model.Experience)
+    {
+        <li>
+            <strong>@job.Company</strong> - @job.Role (@job.Duration)
+        </li>
+    }
+</ul>
+
+<h3>Education</h3>
+<ul>
+    @foreach (var edu in Model.Education)
+    {
+        <li>
+            <strong>@edu.Degree</strong> - @edu.Institution (@edu.Year)
+        </li>
+    }
+</ul>
